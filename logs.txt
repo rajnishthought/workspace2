@@ -1,0 +1,30 @@
+Request method:	POST
+Request URI:	https://qa.treblenetwork.com/qa/api/users/login
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, application/javascript, text/javascript, text/json
+				Content-Type=text/plain; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{"email_id":"rajnish.kumar@kiwitech.com","password":"Fran@12345","device_id":"12345","device_type":"WEB"}
+HTTP/1.1 200 OK
+Date: Wed, 24 Jun 2020 00:39:22 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Content-Length: 161
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json; charset=UTF-8
+
+{
+    "code": 200,
+    "status": "Success",
+    "access_token": "7770eba88ec0d6154a3ac75a0b4abd4b",
+    "plan_id": 3,
+    "plan_slug": "ultrapremium",
+    "user_type": "yearly",
+    "is_synk_contact": 1
+}
