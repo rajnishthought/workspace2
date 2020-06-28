@@ -30,7 +30,7 @@ public class StepDefination extends Utils{
 	      	  	.body(tdb.login());
 	    }
 
-	    @When("^user call login api with http post method$")
+	    @When("^user call login API with HTTP POST method$")
 	    public void user_call_login_api_with_http_post_method() throws Throwable {
 	       res = req.when().post("/users/login").then().extract().response();
 	    }
@@ -38,6 +38,6 @@ public class StepDefination extends Utils{
 	    @Then("^status code is 200$")
 	    public void status_code_is_200() throws Throwable {
 	    	String response = res.asString();
-	    	System.out.println("Response"  +response);
+	    	System.out.println("Response"  +response);	
 	    }
 	}

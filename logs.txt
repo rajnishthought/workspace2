@@ -12,7 +12,7 @@ Multiparts:		<none>
 Body:
 {"email_id":"rajnish.kumar@kiwitech.com","password":"Fran@12345","device_id":"12345","device_type":"WEB"}
 HTTP/1.1 200 OK
-Date: Wed, 24 Jun 2020 00:39:22 GMT
+Date: Sun, 28 Jun 2020 15:09:18 GMT
 Server: Apache/2.4.18 (Ubuntu)
 Content-Length: 161
 Keep-Alive: timeout=5, max=100
@@ -22,7 +22,7 @@ Content-Type: application/json; charset=UTF-8
 {
     "code": 200,
     "status": "Success",
-    "access_token": "7770eba88ec0d6154a3ac75a0b4abd4b",
+    "access_token": "e7c229557e527649e6b6ff3ed32b2a6e",
     "plan_id": 3,
     "plan_slug": "ultrapremium",
     "user_type": "yearly",
