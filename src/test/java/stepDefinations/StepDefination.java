@@ -14,8 +14,11 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import resources.TestDataBuild;
 import resources.Utils;
+import resources.resourcesAPI;
 
 import static io.restassured.RestAssured.given;
+
+import java.io.IOException;
 
 public class StepDefination extends Utils{
 	
@@ -24,19 +27,23 @@ public class StepDefination extends Utils{
 	TestDataBuild tdb = new TestDataBuild(); 
 	
 	    @Given("^give login payload$")
-	    public void give_login_payload() throws Throwable {
+	    public void give_login_payload() throws IOException{
 	     
 	     req =  given().spec(requestSpecification())
 	      	  	.body(tdb.login());
 	    }
 
-	    @When("^user call login API with HTTP POST method$")
-	    public void user_call_login_api_with_http_post_method() throws Throwable {
-	       res = req.when().post("/users/login").then().extract().response();
+	    @When("^user call \"([^\"]*)\" with HTTP \"([^\"]*)\" method$")
+	    public void user_call_with_HTTP_method(String resource, String method){
+	       
+	       resourcesAPI restAPI = resourcesAPI.valueOf(resource);
+	       
+	       if(method.equalsIgnoreCase("POST"))
+	       res = req.when().post(restAPI.getResource()).then().extract().response();
 	    }
 
 	    @Then("^status code is 200$")
-	    public void status_code_is_200() throws Throwable {
+	    public void status_code_is_200(){
 	    	String response = res.asString();
 	    	System.out.println("Response"  +response);	
 	    }
