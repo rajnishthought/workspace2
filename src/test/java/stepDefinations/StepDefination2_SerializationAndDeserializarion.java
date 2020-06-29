@@ -1,18 +1,10 @@
-/*package stepDefinations;
+package stepDefinations;
 
-import org.junit.runner.RunWith;
-
-import TreblePojo.Login;
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.junit.Cucumber;
-import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 import resources.TestDataBuild;
 import resources.Utils;
 import resources.resourcesAPI;
@@ -21,12 +13,24 @@ import static io.restassured.RestAssured.given;
 
 import java.io.IOException;
 
-public class StepDefination extends Utils{
+import TreblePojo.LoginResponsePojo;
+
+public class StepDefination2_SerializationAndDeserializarion extends Utils{
 	
 	RequestSpecification req;
 	Response res;
 	TestDataBuild tdb = new TestDataBuild(); 
 	String response;
+	
+	/**
+	 * De-serialization Concept: Check capturing the Login response as LoginResponsePojo class object:
+	 * Serialization : Object ---> Json conversion
+	 * De-serialization : JSON ---> Object conversion
+	 * */
+	
+	LoginResponsePojo loginresponse;
+	
+	
 	
 	    @Given("^give login payload$")
 	    public void give_login_payload() throws IOException{
@@ -41,22 +45,20 @@ public class StepDefination extends Utils{
 	       resourcesAPI restAPI = resourcesAPI.valueOf(resource);
 	       
 	       if(method.equalsIgnoreCase("POST"))
-	       res = req.when().post(restAPI.getResource()).then().extract().response();
+	       loginresponse = req.when().post(restAPI.getResource()).then().extract().as(LoginResponsePojo.class);
 	    }
 
 	    @Then("^status code is 200$")
 	    public void status_code_is_200(){
-	    	response = res.asString();
-	    	System.out.println("Response"  +response);	
+	    	String statusCode = loginresponse.getStatus();
+	    	
+	    	System.out.println("Status code---> "  +statusCode);
 	    }
 	    
 	    @Then("^fetch authentication token from the response$")
 	    public void fetch_authentication_token_from_the_response(){
-	       
-	    	String accesstoken = getJsonPath(res, "access_token");
+	    	String token = loginresponse.getAccess_token();
 	    	
-	    	System.out.println("Access Token"   +accesstoken);
+	    	System.out.println("Access Token--->"  +token);
 	    }
 	}
-	
-	*/
