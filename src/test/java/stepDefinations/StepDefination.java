@@ -9,6 +9,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.junit.Cucumber;
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
@@ -25,6 +26,7 @@ public class StepDefination extends Utils{
 	RequestSpecification req;
 	Response res;
 	TestDataBuild tdb = new TestDataBuild(); 
+	String response;
 	
 	    @Given("^give login payload$")
 	    public void give_login_payload() throws IOException{
@@ -44,7 +46,15 @@ public class StepDefination extends Utils{
 
 	    @Then("^status code is 200$")
 	    public void status_code_is_200(){
-	    	String response = res.asString();
+	    	response = res.asString();
 	    	System.out.println("Response"  +response);	
+	    }
+	    
+	    @Then("^fetch authentication token from the response$")
+	    public void fetch_authentication_token_from_the_response(){
+	       
+	    	String accesstoken = getJsonPath(res, "access_token");
+	    	
+	    	System.out.println("Access Token"   +accesstoken);
 	    }
 	}
