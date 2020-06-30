@@ -1,30 +1,149 @@
-Request method:	POST
-Request URI:	https://qa.treblenetwork.com/qa/api/users/login
+Request method:	GET
+Request URI:	https://qa.treblenetwork.com/qa/api/v5/users/my-profile
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=application/json, application/javascript, text/javascript, text/json
-				Content-Type=text/plain; charset=ISO-8859-1
+				token=471177c6fa5340b756e276dc63d53896
 Cookies:		<none>
 Multiparts:		<none>
-Body:
-{"email_id":"rajnish.kumar@kiwitech.com","password":"Fran@12345","device_id":"12345","device_type":"WEB"}
+Body:			<none>
 HTTP/1.1 200 OK
-Date: Mon, 29 Jun 2020 13:51:30 GMT
+Date: Tue, 30 Jun 2020 00:34:47 GMT
 Server: Apache/2.4.18 (Ubuntu)
-Content-Length: 161
+Content-Length: 2460
 Keep-Alive: timeout=5, max=100
 Connection: Keep-Alive
 Content-Type: application/json; charset=UTF-8
 
 {
-    "code": 200,
+    "code": "200",
     "status": "Success",
-    "access_token": "05359a32b454592b5cf4dd44ce9ec60d",
-    "plan_id": 3,
-    "plan_slug": "ultrapremium",
-    "user_type": "yearly",
-    "is_synk_contact": 1
+    "user_details": {
+        "user_id": 3,
+        "email": "rajnish.kumar@kiwitech.com",
+        "first_name": "Rajnish",
+        "last_name": "restAPI",
+        "nickname": "rajnishqaserver",
+        "phone": "1111111111",
+        "country_code": "1",
+        "profile_image": "https://treble.s3.amazonaws.com/profile_images/3_5d0c7f0f1aa2f.png",
+        "profile_thumb_image": "https://treble.s3.amazonaws.com/profile_images/100x100_3_5d0c7f0f1aa2f.png",
+        "job_title": "Tester test",
+        "company_name": "KiwiTech Company comp",
+        "organization": "",
+        "organization_id": 0,
+        "background": "Lorem",
+        "how_to_help_other": "Lorem",
+        "education": [
+            {
+                "degree_id": 2,
+                "degree_name": "MA / MS",
+                "college": "Cllege",
+                "major": "No manor"
+            }
+        ],
+        "industry_category_id": 1,
+        "industry_category": "Accounting",
+        "industry_sub_category_id": 1,
+        "industry_sub_category": "Audit",
+        "interested_industries": [
+            {
+                "industry_id": 32,
+                "name": "Airlines/Aviation"
+            }
+        ],
+        "interested_organizations": [
+            {
+                "organization_id": 4,
+                "name": "FlipKart India Inc. Ltd."
+            },
+            {
+                "organization_id": 10,
+                "name": "Myntra Organization"
+            },
+            {
+                "organization_id": 13,
+                "name": "Snapdeal Organization"
+            },
+            {
+                "organization_id": 14,
+                "name": "FlipKart India Organization"
+            },
+            {
+                "organization_id": 46,
+                "name": "Kiwi New Org offline"
+            }
+        ],
+        "geographies": [
+            {
+                "geography_id": 1183,
+                "geography_short_code": "AL",
+                "name": "Alabaster ",
+                "state_name": "Alabama"
+            },
+            {
+                "geography_id": 1704,
+                "geography_short_code": "AL",
+                "name": "Albertville ",
+                "state_name": "Alabama"
+            }
+        ],
+        "country_id": 1,
+        "country": "United States",
+        "state_id": 2,
+        "state": "Alabama",
+        "city_id": 1183,
+        "city": "Alabaster ",
+        "zipcode": "123456",
+        "subscription_plan": "ultrapremium",
+        "subsciption_date": "2020-06-20 08:57:00",
+        "treble_points": 4199,
+        "network_points": 6,
+        "favor_bar": {
+            "given": 296,
+            "receive": 62
+        },
+        "wish_points_remain": 83,
+        "number_of_wishes_remain": 8,
+        "visibility_setting": 3,
+        "wish_tutorial_read": 1,
+        "referral_tutorial_read": 1,
+        "feedback_count": 0,
+        "privacy_settings": {
+            "wish_visibility": 3,
+            "wish_org_id": [
+                
+            ],
+            "wish_tag_id": [
+                
+            ],
+            "visibility_setting": 3,
+            "is_connection_request_accepted": 1,
+            "email_notification": 1,
+            "mobile_notification": 1,
+            "reminder_email_send": 1,
+            "reminder_push_alert": 1,
+            "is_email_opt_out": 1,
+            "wish_attachment_send": 0,
+            "is_monthly": 1,
+            "is_weekly": 1
+        },
+        "latest_purchase_details": {
+            "purchase_platform": "ADMIN",
+            "purchase_medium": "MANUAL",
+            "is_created_by_admin": 1,
+            "is_cancel": 0,
+            "is_promo_code_used": 0,
+            "promo_code": "",
+            "promo_code_duration": 0
+        },
+        "linkedin_sample_csv_url": "https://treble.s3.amazonaws.com/SampleImport.csv",
+        "is_password_set": 1,
+        "wish_group_tutorial_read": 1,
+        "wish_toggle": "individual_wishes",
+        "created_on": "2019-04-24 09:23:16"
+    }
 }
