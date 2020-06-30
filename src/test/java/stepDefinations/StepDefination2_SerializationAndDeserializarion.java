@@ -51,32 +51,39 @@ public class StepDefination2_SerializationAndDeserializarion extends Utils{
 	       resourcesAPI restAPI = resourcesAPI.valueOf(resource);
 	       
 	       if(method.equalsIgnoreCase("POST"))
-	    	   loginresponse = req.when().post(restAPI.getResource()).then().extract().as(LoginResponsePojo.class);
+	    	   res = req.when().post(restAPI.getResource());
 	       
 	       else if(method.equalsIgnoreCase("GET"))
-	    	   myprofile = req.when().get(restAPI.getResource()).then().extract().as(GetMyProfile_Response_Pojo.class);
+	    	   res = req.when().get(restAPI.getResource());
 	    }
 
 	    @Then("^status code is 200$")
-	    public void status_code_is_200(){
-	    	String statusCode = loginresponse.getStatus();
-	    	
-	    	System.out.println("Status code---> "  +statusCode);
+	    public void status_code_is_200()
+	    {
+	    	loginresponse = res.as(LoginResponsePojo.class);
+	    	System.out.println("Status Code of Login Request:--"  +  loginresponse.getCode());
 	    }
 	    
-	    @Then("^fetch authentication token from the response$")
-	    public void fetch_authentication_token_from_the_response(){
+	    
+	    @Then("^fetch authentication token from the response$")	    
+	    public void fetch_authentication_token_from_the_response()
+	    {
 	    	token = loginresponse.getAccess_token();
-	    	
-	    	System.out.println("Access Token--->"  +token);
+	    	System.out.println("Login access token:--"  +token);
 	    }
+	    
 	    
 	    @Then("^get \"([^\"]*)\" response$")
 	    public void get_response(String resource) throws Throwable {
 	    	
+	    	//@Given
 	    	req = given().spec(requestSpecification()).header("token", token);
 	    	
+	    	//@When
 	    	user_call_with_HTTP_method(resource,"GET");
+	    	
+	    	//@Then   	
+	    	myprofile = res.as(GetMyProfile_Response_Pojo.class);
 	    	
 	    	String statuscode = myprofile.getStatus();
 	    	int code = myprofile.getCode();

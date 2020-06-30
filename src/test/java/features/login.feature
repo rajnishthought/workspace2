@@ -6,3 +6,7 @@ Scenario: check login api is working and returing 200 status code
 	Then fetch authentication token from the response
 	Then get "GetProfileAPI" response
 	
+
+#Scenario: Verify create intoruction functionality is working
+
+	
